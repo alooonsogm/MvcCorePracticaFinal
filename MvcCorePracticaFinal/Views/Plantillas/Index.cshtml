@@ -1,0 +1,35 @@
+﻿@model List<Plantilla>
+
+<h1>Crud de Plantilla</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID Hospital</th>
+            <th>ID Sala</th>
+            <th>ID Empleado</th>
+            <th>Apellido</th>
+            <th>Funcion</th>
+            <th>Turno</th>
+            <th>Salario</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Plantilla plantilla in Model)
+        {
+            <tr>
+                <td>@plantilla.HospitalCod</td>
+                <td>@plantilla.SalaCod</td>
+                <td>@plantilla.EmpleadoNo</td>
+                <td>@plantilla.Apellido</td>
+                <td>@plantilla.Funcion</td>
+                <td>@plantilla.Turno</td>
+                <td>@plantilla.Salario</td>
+                <td>
+                    <a asp-controller="Plantillas" asp-action="Details" asp-route-id="@plantilla.EmpleadoNo" class="btn btn-info">Details</a>
+                    <a asp-controller="Plantillas" asp-action="Delete" asp-route-id="@plantilla.EmpleadoNo" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

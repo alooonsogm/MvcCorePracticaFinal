@@ -1,0 +1,32 @@
+﻿@model List<Alumno>
+
+<h1>Alumnos de Tajamar</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID Usuario</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Email</th>
+            <th>Imagen</th>
+            <th>ID Curso</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Alumno alumno in Model)
+        {
+            <tr>
+                <td>@alumno.IdUsuario</td>
+                <td>@alumno.Nombre</td>
+                <td>@alumno.Apellidos</td>
+                <td>@alumno.Email</td>
+                <td><img src="@alumno.Imagen" alt="Imagen Alumno" height="100px" width="100px"/></td>
+                <td>@alumno.IdCurso</td>
+                <td>
+                    <a asp-controller="Alumnos" asp-action="Details" asp-route-id="@alumno.IdUsuario" class="btn btn-info">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

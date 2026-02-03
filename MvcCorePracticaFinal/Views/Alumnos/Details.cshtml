@@ -1,0 +1,32 @@
+﻿@model DetallesAlumno
+
+<h1>Detalles de @Model.NombreUsuario</h1>
+<a asp-controller="Alumnos" asp-action="Index" class="btn btn-info">Back to Alumnos</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID Usuario</th>
+            <th>Nombre Usuario</th>
+            <th>Apellidos Usuario</th>
+            <th>Email</th>
+            <th>Imagen</th>
+            <th>Fecha Inscripcion</th>
+            <th>Capitan</th>
+            <th>Nombre Actividad</th>
+            <th>Nombre Curso</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.IdUsuario</td>
+            <td>@Model.NombreUsuario</td>
+            <td>@Model.Apellido</td>
+            <td>@Model.Email</td>
+            <td><img src="@Model.Imagen" alt="Imagen Alumno" height="100px" width="100px" /></td>
+            <td>@Model.Fecha</td>
+            <td>@Model.Capitan</td>
+            <td>@Model.NombreActividad</td>
+            <td>@Model.NombreCurso</td>
+        </tr>
+    </tbody>
+</table>

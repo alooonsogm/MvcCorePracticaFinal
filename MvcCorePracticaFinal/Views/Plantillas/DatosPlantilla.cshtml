@@ -1,0 +1,65 @@
+﻿@model ResumenPlantilla
+@{
+    List<string> funcionesList = (List<string>)ViewData["FUNCIONES"];
+}
+
+<h1 style="color: red">
+    Buscador Plantilla por Funciones
+</h1>
+<form method="post">
+    <label>Funcion: </label>
+    <select name="funcion" class="form-control">
+        @foreach (string funcion in funcionesList)
+        {
+            <option>@funcion</option>
+        }
+    </select>
+    <button class="btn btn-warning">
+        Buscar plantilla
+    </button>
+</form>
+
+@if (Model != null)
+{
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-warning">Sumatorio salario: @Model.SumatorioSalario</li>
+        <li class="list-group-item list-group-item-secondary">Maximo salario: @Model.MaximoSalario</li>
+        <li class="list-group-item list-group-item-dark">Media Salarial: @Model.MediaSalarial</li>
+    </ul>
+    @if (Model.Plantillas != null)
+    {
+        <table class="table table-active">
+            <thead>
+                <tr>
+                    <th>ID Hospital</th>
+                    <th>ID Sala</th>
+                    <th>ID Empleado</th>
+                    <th>Apellido</th>
+                    <th>Funcion</th>
+                    <th>Turno</th>
+                    <th>Salario</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Plantilla plantilla in Model.Plantillas)
+                {
+                    <tr>
+                        <td>@plantilla.HospitalCod</td>
+                        <td>@plantilla.SalaCod</td>
+                        <td>@plantilla.EmpleadoNo</td>
+                        <td>@plantilla.Apellido</td>
+                        <td>@plantilla.Funcion</td>
+                        <td>@plantilla.Turno</td>
+                        <td>@plantilla.Salario</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h3 style="color:blue">
+            NO hay empleados con ese oficio
+        </h3>
+    }
+}
