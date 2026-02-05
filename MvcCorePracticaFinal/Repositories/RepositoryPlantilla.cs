@@ -3,22 +3,25 @@ using Microsoft.Data.SqlClient;
 using MvcCorePracticaFinal.Models;
 using System.Data;
 
-#region PROCEDURES
-//CREATE procedure SP_PLANTILLA_UPSERT
+#region PROCEDURE
+//create procedure SP_PLANTILLA_UPSERT
 //(@hospitalCod int, @salaCod int, @empleadoNo int, @apellido nvarchar(50), @funcion nvarchar(50), @turno nvarchar(50), @salario int)
 //as
-//	IF EXISTS (SELECT 1 FROM PLANTILLA WHERE EMPLEADO_NO = @empleadoNo)
+//    DECLARE @idEncontrado int;
+//    SELECT @idEncontrado = EMPLEADO_NO FROM PLANTILLA WHERE EMPLEADO_NO = @empleadoNo;
+
+//    IF @idEncontrado IS NOT NULL
 //    BEGIN
 //        UPDATE PLANTILLA SET HOSPITAL_COD = @hospitalCod, SALA_COD = @salaCod, APELLIDO = @apellido, FUNCION = @funcion, T = @turno, SALARIO = @salario
 //        WHERE EMPLEADO_NO = @empleadoNo;
-//END
-//ELSE
+//    END
+//    ELSE
 //    BEGIN
 //        insert into PLANTILLA values (@hospitalCod, @salaCod, @empleadoNo, @apellido, @funcion, @turno, @salario)
 //    END
 //go
 
-//exec SP_PLANTILLA_UPSERT 22, 6, 55556, 'Alonso', 'Interino', 'T', 1
+//exec SP_PLANTILLA_UPSERT 22, 6, 55557, 'Alonso', 'Interino', 'T', 15
 #endregion
 
 namespace MvcCorePracticaFinal.Repositories
